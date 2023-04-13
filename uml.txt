@@ -1,0 +1,33 @@
+classDiagram
+
+class aircraft{
+    - string icao24
+    - string callsign
+    -
+    - int[] time
+    - float[] longitude
+    - float[] latitude
+    -
+    - ####EXTRAS####
+    - string origin_country
+    - float[] altitude
+    - float[] velocity
+    - float[] vertSpeed
+    - bool[] onGround
+    - string[] squawk
+
+    +getX(): float
+    +getY(): float
+    +addEntry(entry): void
+}
+
+class logger{
+    - aircraft[]
+    + logData(): json entry
+    + storeEntry(json entry): void
+    + findICAOMatch(string icao24): int index
+
+}
+
+
+%%https://www.digitalocean.com/community/tutorials/json-simple-example
