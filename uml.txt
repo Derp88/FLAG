@@ -19,6 +19,7 @@ class aircraft{
     +getX(): float
     +getY(): float
     +addEntry(entry): void
+    +@Override toString(): string
 }
 
 class logger{
@@ -28,6 +29,3 @@ class logger{
     + findICAOMatch(string icao24): int index
 
 }
-
-
-%%https://www.digitalocean.com/community/tutorials/json-simple-example
