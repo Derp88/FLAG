@@ -19,6 +19,7 @@ class aircraft{
     +getX(): float
     +getY(): float
     +addEntry(entry): void
+    +getICAO(): String
     +@Override toString(): string
 }
 
@@ -27,5 +28,5 @@ class logger{
     + logData(): json entry
     + storeEntry(json entry): void
     + findICAOMatch(string icao24): int index
-
+    + logOnTimerLoop(int seconds): void
 }

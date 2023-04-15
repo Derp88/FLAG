@@ -17,11 +17,23 @@ public class Logger {
         Logger testLogger = new Logger();
         
         //testLogger.storeEntry(testLogger.logData());
-        for (int i = 0; i < 5; i++){
-            testLogger.storeEntry(testLogger.logData());
+        //for (int i = 0; i < 5; i++){
+        //    testLogger.storeEntry(testLogger.logData());
+        //}
+        testLogger.runOnTimerLoop(40);
+    }
+    public void runOnTimerLoop(int seconds){
+        int initTime = (int) System.currentTimeMillis();
+        int runDuration = initTime + (seconds * 1000);
+
+        int periodTime = initTime - 10000; //Remove 10 seconds to the starting time, so we run once before waiting.
+        while ((int) System.currentTimeMillis() < runDuration){
+            if ((int) System.currentTimeMillis() > periodTime + 10000){//This only runs every 10 seconds
+                storeEntry(logData());
+                periodTime = (int) System.currentTimeMillis();
+            }
         }
     }
-    
     public JSONObject logData() {
         try {
             //Gets connection and puts into a string format.
