@@ -16,11 +16,7 @@ public class Logger {
     public static void main(String[] args){
         Logger testLogger = new Logger();
         
-        //testLogger.storeEntry(testLogger.logData());
-        //for (int i = 0; i < 5; i++){
-        //    testLogger.storeEntry(testLogger.logData());
-        //}
-        testLogger.runOnTimerLoop(40);
+        testLogger.runOnTimerLoop(70);
     }
     public void runOnTimerLoop(int seconds){
         int initTime = (int) System.currentTimeMillis();
