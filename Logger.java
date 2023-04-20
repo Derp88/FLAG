@@ -30,10 +30,12 @@ public class Logger {
             }
         }
     }
+   
     public JSONObject logData() {
         try {
             //Gets connection and puts into a string format.
-            URLConnection apiConnection = new URL("https://opensky-network.org/api/states/all?lamin=39.631077&lomin=-86.374823&lamax=39.927642&lomax=-85.937323").openConnection();
+            //URLConnection apiConnection = new URL("https://opensky-network.org/api/states/all?lamin=39.631077&lomin=-86.374823&lamax=39.927642&lomax=-85.937323").openConnection();
+            URLConnection apiConnection = new URL("https://opensky-network.org/api/states/all?lamin=39.567746&lomin=-87.525964&lamax=40.770443&lomax=-84.815118").openConnection();
             InputStream input = apiConnection.getInputStream();
             InputStreamReader inputReader = new InputStreamReader(input);
             BufferedReader buffReader = new BufferedReader(inputReader);
@@ -90,5 +92,8 @@ public class Logger {
             }
         }
         return match;
+    }
+    public ArrayList<Aircraft> getAircraftList(){
+        return aircraftList;
     }
 }//End Class

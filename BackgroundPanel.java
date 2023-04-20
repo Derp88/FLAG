@@ -30,6 +30,6 @@ public class BackgroundPanel extends JPanel{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         //g.drawImage(img, 0, 0, null); //Might need to set observer to "this", not sure
-        //g.drawImage(img, 0, 0, getWidth(), getHeight(), this); //This works to fix the issue of the image not fitting, but it scales weirdly
+        g.drawImage(img, 0, 0, getWidth(), getHeight(), this); //This works to fix the issue of the image not fitting, but it scales weirdly
     }
 }

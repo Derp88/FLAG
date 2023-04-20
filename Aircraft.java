@@ -21,6 +21,7 @@ public class Aircraft {
 
         this.latitude = new ArrayList<Double>();
         this.latitude.add(latitude);
+
     }//End Constructor
     public void addEntry(double longitude, double latitude){
         this.longitude.add(longitude);
@@ -29,7 +30,13 @@ public class Aircraft {
     public String getICAO(){
         return this.icao24;
     }
-
+    public ArrayList<Double> getLongitude(){
+        return longitude;
+    }
+    public ArrayList<Double> getLatitude(){
+        return latitude;
+    }
+ 
     @Override
     public String toString(){
         return ("ICAO: " + icao24 + " Call Sign: " + callSign + " Position: LONG " + longitude + " LAT " + latitude);
