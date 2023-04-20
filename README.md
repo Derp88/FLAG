@@ -1,7 +1,7 @@
 # Flight Logger And Grapher (FLAG)
 
 ## About
-The purpose of this tool is to log flights in a defined area (For this project this will be the general Indianapolis metro area) and graph the paths of these aircraft onto a map.
+The purpose of this tool is to log flights in a defined area (This project focuses on Central Indiana as an example) and graph the paths of these aircraft onto a map.
 
 ## Area
 This project maps the area in a bounding box with the top left corner at Lat: 40.770443 Long: -87.525964.
