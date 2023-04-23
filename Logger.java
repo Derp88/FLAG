@@ -65,6 +65,9 @@ public class Logger {
             double longitude = (double) individualaircraftArray.get(5);
             double latitude = (double) individualaircraftArray.get(6);
 
+            double altitude = ((double) individualaircraftArray.get(7)) * 3.281; //Converts to feet
+            double velocity = ((double) individualaircraftArray.get(9)) * 2.237; //Converts to MPH
+
             //Check to see if the plane already exists
             if (findICAOMatch(icao24) != -1){
                 //Plane already exists. Update it's position
@@ -73,7 +76,7 @@ public class Logger {
             }else{
                 //This plane does not exist. Create a new one.
                 System.out.println("Logger: Adding aircraft: " + icao24);
-                Aircraft aircraftEntry = new Aircraft(icao24, callSign, longitude, latitude);
+                Aircraft aircraftEntry = new Aircraft(icao24, callSign, longitude, latitude, altitude, velocity);
                 aircraftList.add(aircraftEntry);
             }
         }//End for loop

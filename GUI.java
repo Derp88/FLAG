@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
@@ -12,7 +13,7 @@ public class GUI extends JFrame{
     private ArrayList<Path2D> flightPathList = new ArrayList<Path2D>();
     private ArrayList<Aircraft> localAircraftList = new ArrayList<Aircraft>();
     private Color[] colors = new Color[] {
-        Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GRAY, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW,
+        Color.BLACK, Color.BLUE, Color.DARK_GRAY, Color.GRAY, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW,
     };
     private BackgroundPanel BackGround;
     //Map details
@@ -61,11 +62,14 @@ public class GUI extends JFrame{
         if (!flightPathList.isEmpty()){
             int colorIndex = 0;
             for (int i = 0; i < flightPathList.size(); i++){
-                colorIndex = i % 9;
+                colorIndex = i % 8;
                 graphics2D.setColor(colors[colorIndex]);
+                graphics2D.setFont(new Font("defualt", Font.BOLD, 12));
                 Stroke stroke = new BasicStroke(3f);
                 graphics2D.setStroke(stroke);
                 graphics2D.drawString(localAircraftList.get(i).getCallSign(), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 10);
+                graphics2D.drawString("FEET: " + String.valueOf(Math.round(localAircraftList.get(i).getAltitude())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 20);
+                graphics2D.drawString("MPH: " + String.valueOf(Math.round(localAircraftList.get(i).getVelocity())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 30);
                 graphics2D.draw(flightPathList.get(i));
                 
             }

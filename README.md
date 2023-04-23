@@ -7,6 +7,8 @@ The purpose of this tool is to log flights in a defined area (This project focus
 This project maps the area in a bounding box with the top left corner at Lat: 40.770443 Long: -87.525964.
 The bottom right corner is at Lat: 39.567746 Long: -84.815118.
 
+## Troubleshooting
+If there are issues with flight paths getting graphed, it is recommended to recompile the program, specifically the JSON Parser. I'm not sure what the problem is but doing this seems to fix it.
 
 ## Credits
 - JSON handling via Google's [json-simple](https://code.google.com/archive/p/json-simple/).
