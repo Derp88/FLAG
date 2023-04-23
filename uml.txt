@@ -3,30 +3,52 @@ classDiagram
 class aircraft{
     - string icao24
     - string callsign
-    -
-    - int[] time
     - float[] longitude
     - float[] latitude
-    -
-    - ####EXTRAS####
-    - string origin_country
-    - float[] altitude
-    - float[] velocity
-    - float[] vertSpeed
-    - bool[] onGround
-    - string[] squawk
+    - float altitude
+    - float velocity
 
-    +getX(): float
-    +getY(): float
-    +addEntry(entry): void
-    +getICAO(): String
+    +Aircraft(entry): void
+    +addEntry(float long, float lat): void
+    +getICAO(): String icao
+    +getCallSign(): String Callsign
+    +getLongitude(): ArrayList long;
+    +getLatitude(): ArrayList lat;
+    +getAltitude(): float
+    +getgetVelocity(): float
     +@Override toString(): string
 }
 
 class logger{
     - aircraft[]
+    + runOnTimerLoop(int seconds): void
     + logData(): json entry
     + storeEntry(json entry): void
     + findICAOMatch(string icao24): int index
-    + logOnTimerLoop(int seconds): void
+    + getAircraftList(): ArrayList aircraftlist
+}
+
+class GUI{
+    - flightPathList[]
+    - localAircraftList[]
+    - colors[]
+    - BackgrouundPnael
+    - float mapLongLeft
+    - float mapLongRight
+    - float mapLongDelta
+    - float mapLatBottom
+    - float mapLatBottomDegree
+    + GUI(): void
+    + updatePaths(ArrayList aircraflist): void
+    + getLongitudeX(float longitude): float x
+    + getLatitudeY(float latitude): float y
+    + @Override paint(Graphics g): void
+
+}
+class BackgroundPanel{
+    - Image img
+    + BackgroundPanel(): void
+    + getImageHeight(): int y
+    + getImageWidth(): int x
+    + @Override paintComponent(Graphics g): void
 }

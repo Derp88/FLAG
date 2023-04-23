@@ -13,7 +13,7 @@ import org.json.simple.parser.ParseException;
 
 public class Logger {
     private ArrayList<Aircraft> aircraftList = new ArrayList<Aircraft>();
-    public static void main(String[] args){
+    public static void main(String[] args){ //For testing purposes
         Logger testLogger = new Logger();
         
         testLogger.runOnTimerLoop(70);
