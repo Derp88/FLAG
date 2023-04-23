@@ -13,7 +13,7 @@ public class GUI extends JFrame{
     private ArrayList<Path2D> flightPathList = new ArrayList<Path2D>();
     private ArrayList<Aircraft> localAircraftList = new ArrayList<Aircraft>();
     private Color[] colors = new Color[] {
-        Color.BLACK, Color.BLUE, Color.DARK_GRAY, Color.GRAY, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW,
+        Color.BLACK, Color.BLUE, Color.DARK_GRAY, Color.GRAY, Color.MAGENTA, Color.PINK, Color.RED, Color.YELLOW,
     };
     private BackgroundPanel BackGround;
     //Map details
@@ -62,7 +62,7 @@ public class GUI extends JFrame{
         if (!flightPathList.isEmpty()){
             int colorIndex = 0;
             for (int i = 0; i < flightPathList.size(); i++){
-                colorIndex = i % 8;
+                colorIndex = i % 7;
                 graphics2D.setColor(colors[colorIndex]);
                 graphics2D.setFont(new Font("defualt", Font.BOLD, 12));
                 Stroke stroke = new BasicStroke(3f);

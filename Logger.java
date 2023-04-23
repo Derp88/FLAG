@@ -64,9 +64,20 @@ public class Logger {
             String callSign = (String) individualaircraftArray.get(1);
             double longitude = (double) individualaircraftArray.get(5);
             double latitude = (double) individualaircraftArray.get(6);
+            double altitude = 0;
+            double velocity = 0;
 
-            double altitude = ((double) individualaircraftArray.get(7)) * 3.281; //Converts to feet
-            double velocity = ((double) individualaircraftArray.get(9)) * 2.237; //Converts to MPH
+            try {
+                altitude = ((double) individualaircraftArray.get(7)) * 3.281; //Converts to feet
+                velocity = ((double) individualaircraftArray.get(9)) * 2.237; //Converts to MPH
+            } catch (ClassCastException e){
+                System.out.println("Logger Error: Casting Failure");
+                System.out.println("Altitude: " + individualaircraftArray.get(7));
+                System.out.println("Velocity: " + individualaircraftArray.get(9));
+            } catch (NullPointerException e) {
+                System.out.println("Logger Error: Got null for return value for altitude or velocity.");
+            }
+            
 
             //Check to see if the plane already exists
             if (findICAOMatch(icao24) != -1){
