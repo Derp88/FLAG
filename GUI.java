@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame{
     private ArrayList<Path2D> flightPathList = new ArrayList<Path2D>();
+    private ArrayList<Aircraft> localAircraftList = new ArrayList<Aircraft>();
     private Color[] colors = new Color[] {
         Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GRAY, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW,
     };
@@ -29,6 +30,7 @@ public class GUI extends JFrame{
     }
     public void updatePaths(ArrayList<Aircraft> aircraftList){
         flightPathList.clear();
+        localAircraftList = aircraftList;
         for (int i = 0; i < aircraftList.size(); i++){//For each aircraft
             Path2D flightPath = new Path2D.Double(); //Create a new flight path
             flightPath.moveTo(getLongitudeX(aircraftList.get(i).getLongitude().get(0)), getLatitudeY(aircraftList.get(i).getLatitude().get(0)));//Set the path to the first recorded position
@@ -63,6 +65,7 @@ public class GUI extends JFrame{
                 graphics2D.setColor(colors[colorIndex]);
                 Stroke stroke = new BasicStroke(3f);
                 graphics2D.setStroke(stroke);
+                graphics2D.drawString(localAircraftList.get(i).getCallSign(), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 10);
                 graphics2D.draw(flightPathList.get(i));
                 
             }

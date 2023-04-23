@@ -30,6 +30,9 @@ public class Aircraft {
     public String getICAO(){
         return this.icao24;
     }
+    public String getCallSign(){
+        return this.callSign;
+    }
     public ArrayList<Double> getLongitude(){
         return longitude;
     }
