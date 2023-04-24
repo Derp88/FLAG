@@ -33,9 +33,11 @@ public class Aircraft {
         this.velocity = velocity;
 
     }//End Constructor
-    public void addEntry(double longitude, double latitude){
+    public void addEntry(double longitude, double latitude, double altitude, double velocity){
         this.longitude.add(longitude);
         this.latitude.add(latitude);
+        this.altitude = altitude;
+        this.velocity = velocity;
     }
     public String getICAO(){
         return this.icao24;

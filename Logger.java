@@ -83,7 +83,7 @@ public class Logger {
             if (findICAOMatch(icao24) != -1){
                 //Plane already exists. Update it's position
                 System.out.println("Logger: Updating aircraft: " + icao24);
-                aircraftList.get(findICAOMatch(icao24)).addEntry(longitude, latitude);;
+                aircraftList.get(findICAOMatch(icao24)).addEntry(longitude, latitude, altitude, velocity);
             }else{
                 //This plane does not exist. Create a new one.
                 System.out.println("Logger: Adding aircraft: " + icao24);
