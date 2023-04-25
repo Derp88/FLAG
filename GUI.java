@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -27,6 +28,7 @@ public class GUI extends JFrame{
         BackGround = new BackgroundPanel();
         this.setContentPane(BackGround);
         this.setSize(BackGround.getImageWidth(), BackGround.getImageHeight());
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public void updatePaths(ArrayList<Aircraft> aircraftList){
