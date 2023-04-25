@@ -23,9 +23,11 @@ public class GUI extends JFrame{
     private double mapLongDelta = mapLongRight - mapLongLeft;
     private double mapLatBottom = 39.567746;
     private double mapLatBottomDegree = (mapLatBottom * Math.PI)/ 180;
+    private boolean simpleMode = false;
 
-    public GUI() {
+    public GUI(boolean simpleMode) {
         BackGround = new BackgroundPanel();
+        this.simpleMode = simpleMode;
         this.setContentPane(BackGround);
         this.setSize(BackGround.getImageWidth(), BackGround.getImageHeight());
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -70,8 +72,10 @@ public class GUI extends JFrame{
                 Stroke stroke = new BasicStroke(3f);
                 graphics2D.setStroke(stroke);
                 graphics2D.drawString(localAircraftList.get(i).getCallSign(), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 10);
-                graphics2D.drawString("FEET: " + String.valueOf(Math.round(localAircraftList.get(i).getAltitude())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 20);
-                graphics2D.drawString("MPH: " + String.valueOf(Math.round(localAircraftList.get(i).getVelocity())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 30);
+                if (!simpleMode){
+                    graphics2D.drawString("FEET: " + String.valueOf(Math.round(localAircraftList.get(i).getAltitude())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 20);
+                    graphics2D.drawString("MPH: " + String.valueOf(Math.round(localAircraftList.get(i).getVelocity())), (int) flightPathList.get(i).getCurrentPoint().getX() + 10, (int) flightPathList.get(i).getCurrentPoint().getY() + 30);
+                }
                 graphics2D.draw(flightPathList.get(i));
                 
             }
